@@ -1,0 +1,43 @@
+#include <iostream>
+#include <cassert>
+#include "message.h"
+#include "pancakes.h"
+
+using namespace std;
+
+int main() 
+{
+    long long r = 0LL;
+    long long num = NumberOfNodes();
+    long long my = MyNodeId();
+    long long get = GetStackSize();
+    
+    for(int i = my; i < get; i += num) 
+    {
+      if (i != 0) 
+      {
+        //GetStackItem(i);
+        //GetStackItem(i-1)
+        if (GetStackItem(i) < GetStackItem(i - 1)) r++;
+      }
+    }
+    
+    if (my == 0)
+    {
+       for(int j=1; j < num; j++)
+         {
+           Receive(j);
+           //GetLL(j);
+           r+=GetLL(j);
+         }
+      cout<<r+1;
+    }
+    
+    else
+    { 
+      PutLL(0,r);
+      Send(0);
+     }
+     
+    return 0;  
+  }
