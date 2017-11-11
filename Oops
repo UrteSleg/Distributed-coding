@@ -1,0 +1,25 @@
+#include <iostream>
+#include <cassert>
+#include "message.h"
+#include "oops.h"
+
+using namespace std;
+
+int main() 
+{
+    long long mx = GetNumber(0);
+    long long mn = GetNumber(0);
+    long long n = 0LL;
+    long long num = NumberOfNodes();
+    long long my = MyNodeId();
+    long long get = GetN();
+    for(int i = 0; i < get; i++)
+    {
+      if(mx<GetNumber(i)) mx = GetNumber(i);
+      if(mn>Getnumber(i)) mn = GetNumber(i);
+    }
+    n = mx - mn;
+    PutLL(0, n);
+    if(my==0) cout<<n;
+    return 0;  
+  }
