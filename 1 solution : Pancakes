@@ -8,9 +8,9 @@ using namespace std;
 int main() 
 {
     long long ans = 0LL;
-    ll nodes = NumberOfNodes();
-    ll my = MyNodeId();
-    ll StackSize = GetStackSize();
+    long long nodes = NumberOfNodes();
+    long long my = MyNodeId();
+    long long StackSize = GetStackSize();
     
     for(int i = my; i < StackSize; i += nodes) 
     {
